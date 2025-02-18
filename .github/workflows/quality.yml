@@ -24,5 +24,11 @@ jobs:
           php-version: '8.1'
           coverage: none
 
+      - name: Composer install
+        uses: ramsey/composer-install@v3
+
+      - name: Check namespaces
+        run: composer dumpautoload --optimize --strict-psr
+
       - name: Composer validate
         run: composer validate --strict
