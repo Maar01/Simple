@@ -1,0 +1,19 @@
+{
+    "name": "maar10/simple",
+    "authors": [
+        {
+            "name": "MarIO",
+            "email": "maar01art@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Maar10\\Simple\\": "src/"
+        }
+    },
+    "description": "Exploring PHP",
+    "license": ["MIT"]
+}
