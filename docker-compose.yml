@@ -13,3 +13,18 @@ services:
     container_name: simple-php-fpm
     volumes:
       - ./:/var/www/html
+  db:
+    image: mariadb
+    container_name: simple-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: simple_db
+      MYSQL_USER: simple_user
+      MYSQL_PASSWORD: simple_password
+    ports:
+      - '3306:3306'
+    volumes:
+      - data:/var/lib/mysql
+
+volumes:
+    data:
