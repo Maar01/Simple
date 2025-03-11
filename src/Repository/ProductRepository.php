@@ -9,6 +9,7 @@ class ProductRepository
 {
     public function __construct(Connection $connection)
     {
+        var_dump($connection->getDatabase());exit;
         $this->connection = $connection;
     }
 

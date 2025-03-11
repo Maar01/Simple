@@ -3,6 +3,7 @@
 namespace Maar10\Simple;
 
 use Maar10\Simple\ServiceProvider\ConnectionServiceProvider;
+use Maar10\Simple\ServiceProvider\EnviromentServiceProvider;
 use PrinsFrank\Container\Container;
 use PrinsFrank\Container\ServiceProvider\ServiceProviderInterface;
 
@@ -31,6 +32,7 @@ class Kernel
     {
         return [
             ConnectionServiceProvider::class,
+            EnviromentServiceProvider::class,
         ];
     }
 }

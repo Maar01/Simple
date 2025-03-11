@@ -1,4 +1,3 @@
-FROM ubuntu:latest
-LABEL authors="incfile"
+FROM php:8.1-fpm
 
-ENTRYPOINT ["top", "-b"]
+RUN docker-php-ext-install pdo_mysql

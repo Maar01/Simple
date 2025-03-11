@@ -4,6 +4,8 @@ namespace Maar10\Simple\ServiceProvider;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
+use Maar10\Simple\Environment;
+use Maar10\Simple\EnviromentKey;
 use PrinsFrank\Container\Container;
 use PrinsFrank\Container\Definition\DefinitionSet;
 use PrinsFrank\Container\Definition\Item\Concrete;
@@ -22,10 +24,14 @@ class ConnectionServiceProvider implements ServiceProviderInterface
         $resolvedSet->add(
             new Concrete(
                 $identifier,
-                fn () => DriverManager::getConnection(
+                fn (Environment $enviroment) => DriverManager::getConnection(
                     [
-                        'user' => 'user',
-                        'driver' => 'pdo_mysql',
+                        'user' => $enviroment->get(EnviromentKey::DATABASE_USER),
+                        'host' => $enviroment->get(EnviromentKey::DATABASE_HOST),
+                        'port' => $enviroment->get(EnviromentKey::DATABASE_PORT),
+                        'dbname' => $enviroment->get(EnviromentKey::DATABASE_NAME),
+                        'driver' => $enviroment->get(EnviromentKey::DATABASE_DRIVER),
+                        'password' => $enviroment->get(EnviromentKey::DATABASE_PASSWORD),
                     ]
                 )
             )
